@@ -4,7 +4,12 @@ git="git"
 gStreamer="libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good 
             gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav gstreamer1.0-doc 
             gstreamer1.0-tools gstreamer1.0-x gstreamer1.0-alsa gstreamer1.0-pulseaudio"
-			
+python2="python-dev"
+pip2="python-pip"
+python3="python3-dev"
+pip3="python3-pip"
+virtEnv="virtualenv"
+
 function configureGit()
 {
 	echo "##### Configure Git"
@@ -15,6 +20,7 @@ function configureGit()
 	echo "Git configuration Detail:"
 	git config --list
 }
+
 function systemBasicUpdate()
 {
 	echo "#### Basic ubuntu update"
@@ -57,5 +63,54 @@ function systemBasicUpdate()
 	done
 }
 
+function installAptPackage()
+{
+    for pkg in $1; do
+        	if dpkg --get-selections | grep -q "^$pkg[[:space:]]*install$" >/dev/null; then
+                	echo -e "$pkg is already installed"
+		else
+			if sudo apt-get -qq install $pkg; then
+    				echo "Successfully installed $pkg"
+			else
+    				echo "Error installing $pkg"
+			fi
+		fi
+	done
+}
+
+function installPipPackage()
+{
+    if [ "$1" == "2" ];
+        then
+        pip install $2 --user
+    else  
+        pip3 install $2 --user
+    fi
+}
+
 #MainStarts Here
 systemBasicUpdate
+read -r -p "Which Python Version You wanna use?[2/3.7]" response
+if [ "$response" == "3" ]
+    then
+        echo "Using Python 3 Version"
+        #Install Python2 Package
+        installAptPackage ${python2}
+
+        #Install Python2 pip package manager
+        installAptPackage ${pip2}
+
+        #Install virtualenv Pip package
+        installPipPackage $1 ${virtEnv}
+
+    else
+        echo "Using Python 2.7 Version"
+		        #Install Python3 Package
+        installAptPackage ${python3}
+
+        #Install Python3 pip package manager
+        installAptPackage ${pip3}
+
+        #Install virtualenv Pip package
+        installPipPackage $1 ${virtEnv}
+    fi

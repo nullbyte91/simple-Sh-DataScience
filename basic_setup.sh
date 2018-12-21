@@ -1,6 +1,10 @@
 #!/bin/bash
 
 git="git"
+gStreamer="libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good 
+            gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav gstreamer1.0-doc 
+            gstreamer1.0-tools gstreamer1.0-x gstreamer1.0-alsa gstreamer1.0-pulseaudio"
+			
 function configureGit()
 {
 	echo "##### Configure Git"
@@ -38,6 +42,19 @@ function systemBasicUpdate()
 	else
     		echo "Assume you have done the Git configuration already"
 	fi
+	#Install Gstreamer
+	echo "#### Install Gstreamer"
+	for pkg in $gStreamer; do
+    	if dpkg --get-selections | grep -q "^$pkg[[:space:]]*install$" >/dev/null; then
+            echo -e "$pkg is already installed"
+		else
+			if sudo apt-get -qq install $pkg; then
+    			echo "Successfully installed $pkg"
+			else
+    			echo "Error installing $pkg"
+			fi
+		fi
+	done
 }
 
 #MainStarts Here

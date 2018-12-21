@@ -9,6 +9,7 @@ pip2="python-pip"
 python3="python3-dev"
 pip3="python3-pip"
 virtEnv="virtualenv"
+future="future"
 
 function configureGit()
 {
@@ -79,7 +80,10 @@ function installAptPackage()
 }
 
 function installPipPackage()
-{
+{	
+	echo "$1"
+	echo "$2"
+
     if [ "$1" == "2" ];
         then
         pip install $2 --user
@@ -101,7 +105,10 @@ if [ "$response" == "3" ]
         installAptPackage ${pip2}
 
         #Install virtualenv Pip package
-        installPipPackage $1 ${virtEnv}
+        installPipPackage $response ${virtEnv}
+
+		#Install future: Fix:how-to-solve-readtimeouterror-httpsconnectionpoolhost-pypi-python-org-port
+		installPipPackage $response ${future}
 
     else
         echo "Using Python 2.7 Version"
@@ -112,5 +119,8 @@ if [ "$response" == "3" ]
         installAptPackage ${pip3}
 
         #Install virtualenv Pip package
-        installPipPackage $1 ${virtEnv}
+        installPipPackage $response ${virtEnv}
+		
+		#Install future: Fix:how-to-solve-readtimeouterror-httpsconnectionpoolhost-pypi-python-org-port
+		installPipPackage $response ${future}
     fi

@@ -58,12 +58,23 @@ function cuDNNInstall()
     libcudnn7-doc_7.0.5.15–1+cuda9.0_amd64.deb from https://developer.nvidia.com/rdp/cudnn-download"
     echo "Need Nvidia Reg"
     read -r -p "Give a download path of cuDNN?[Y/N]" cuDNNPath
+    pushd $cuDNNPath
     sudo dpkg -i libcudnn7*.deb
+    popd
     #Configure the CUDA and cuDNN library paths
-    echo 'export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda/extras/CUPTI/lib64"' >> ~/.bashrc 
+    echo 'export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda/extras/CUPTI/lib64"' >> ~/.bashrc
+    source ~/.bashrc
+}
+
+function verifyCuda()
+{
+    pip install --upgrade future --user
+    pip install --upgrade tensorflow-gpu --user
+    python -c "import tensorflow as tf; tf.enable_eager_execution(); print(tf.reduce_sum(tf.random_normal([1000, 1000])))"
 }
 #MainStarts Here
 cudaInstall
-#cuDNNInstall
+cuDNNInstall
+verifyCuda
 #Remove the temp dir, After successfull installation
 rm -rf $CUR_PATH/temp

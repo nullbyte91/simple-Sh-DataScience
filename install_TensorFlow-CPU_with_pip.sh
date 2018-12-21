@@ -66,4 +66,32 @@ if [ "$response" == "3" ]
     else
         echo "Using Python 2.7 Version"
         createVirtualEnv "2"
+        response="2.7"
+        echo $response
     fi
+
+read -r -p "Give a path to create a Python virtual env without /?[eg:/home/Username]" virtPath
+
+AcPath="$virtPath"/virtEnv_"$response"
+
+virtualenv --system-site-packages -p python$response $AcPath
+#Activate the virtual environment using a shell-specific command:
+source $AcPath/bin/activate
+
+#Install the TensorFlow pip package
+read -r -p "CPU or GPU Support Tensorflow?[CPU/GPU]" hwOption
+if [ "$hwOption" == "CPU" ]
+    then
+        #Install Tensorflow CPU
+        pip install --upgrade tensorflow
+        #Verify Tensorflow CPU
+        python -c "import tensorflow as tf; tf.enable_eager_execution(); print(tf.reduce_sum(tf.random_normal([1000, 1000])))"
+    else
+        echo "Hello"
+
+    fi
+
+deactivate 
+
+
+

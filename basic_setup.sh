@@ -10,6 +10,8 @@ python3="python3-dev"
 pip3="python3-pip"
 virtEnv="virtualenv"
 future="future"
+Jupyter="jupyter"
+
 
 function configureGit()
 {
@@ -109,10 +111,9 @@ if [ "$response" == "3" ]
 
 		#Install future: Fix:how-to-solve-readtimeouterror-httpsconnectionpoolhost-pypi-python-org-port
 		installPipPackage $response ${future}
-
     else
-        echo "Using Python 2.7 Version"
-		        #Install Python3 Package
+        echo "Using Python 2 Version"
+		#Install Python3 Package
         installAptPackage ${python3}
 
         #Install Python3 pip package manager
@@ -123,4 +124,12 @@ if [ "$response" == "3" ]
 		
 		#Install future: Fix:how-to-solve-readtimeouterror-httpsconnectionpoolhost-pypi-python-org-port
 		installPipPackage $response ${future}
-    fi
+	fi
+
+	read -r -p "Do you wanna Install Jupyter Notebook?[Y/N]" jupterNotebook	
+	if [[ "$jupterNotebook" =~ ^([yY][eE][sS]|[yY])+$ ]]
+	then
+		installAptPackage "ipython" 
+		installAptPackage "ipython-notebook"
+		installPipPackage $response ${Jupyter}
+	fi

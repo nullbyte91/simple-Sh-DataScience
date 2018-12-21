@@ -5,6 +5,7 @@ pip2="python-pip"
 python3="python3-dev"
 pip3="python3-pip"
 virtEnv="virtualenv"
+future="future"
 
 function installAptPackage()
 {
@@ -66,6 +67,8 @@ if [ "$response" == "3" ]
     else
         echo "Using Python 2.7 Version"
         createVirtualEnv "2"
+        #Install future: Fix:how-to-solve-readtimeouterror-httpsconnectionpoolhost-pypi-python-org-port
+        installPipPackage $response ${future}
         response="2.7"
         echo $response
     fi
@@ -75,23 +78,26 @@ read -r -p "Give a path to create a Python virtual env without /?[eg:/home/Usern
 AcPath="$virtPath"/virtEnv_"$response"
 
 virtualenv --system-site-packages -p python$response $AcPath
+#To do:
+# Activating virtual env from the bash script and installing tensorflow throwing an error
 #Activate the virtual environment using a shell-specific command:
-source $AcPath/bin/activate
+# source $AcPath/bin/activate
 
-#Install the TensorFlow pip package
-read -r -p "CPU or GPU Support Tensorflow?[CPU/GPU]" hwOption
-if [ "$hwOption" == "CPU" ]
-    then
-        #Install Tensorflow CPU
-        pip install --upgrade tensorflow
-        #Verify Tensorflow CPU
-        python -c "import tensorflow as tf; tf.enable_eager_execution(); print(tf.reduce_sum(tf.random_normal([1000, 1000])))"
-    else
-        echo "Hello"
+# #Install the TensorFlow pip package
+# read -r -p "CPU or GPU Support Tensorflow?[CPU/GPU]" hwOption
+# if [ "$hwOption" == "CPU" ]
+#     then
+#         #Install Tensorflow CPU
+#         pip install --upgrade tensorflow
+#         #Verify Tensorflow CPU
+#         python -c "import tensorflow as tf; tf.enable_eager_execution(); print(tf.reduce_sum(tf.random_normal([1000, 1000])))"
+#     else
+#         echo "Hello"
 
-    fi
+#     fi
 
-deactivate 
+# deactivate 
+
 
 
 

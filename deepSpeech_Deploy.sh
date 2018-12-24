@@ -143,3 +143,5 @@ else
 fi
 
 compileDeepBench
+#Todo 
+#NCCL installation

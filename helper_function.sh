@@ -44,8 +44,9 @@ function installAptPackages()
 	done
 }
 
-function installPipPackage()
+function installPipPackages()
 {
+    echo "Note: Pip install with  --user Mode"
     echo "$1 & $2"
     if [ "$1" == "2" ];
         then

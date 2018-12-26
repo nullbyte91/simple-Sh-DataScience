@@ -23,6 +23,7 @@ function virt_activate()
 source ./helper_function.sh
 #systemBasicUpdates 
 echo "############ DeepSpeech - A TensorFlow implementation of Baidu's DeepSpeech architecture #####"
+echo "Note: You should have cuda and cuDNN installed"
 echo "1. Deep Speech Inference Setup"
 echo "2. Deep Speech Inference - Use wav audio file"
 echo "3. Deep Speech Training Setup"

@@ -11,6 +11,16 @@ List of commands and application:
 
 [deepBench_Deploy.sh](https://github.com/nullbyte91/Simple-Sh-DataScience/blob/master/deepBench_Deploy.sh) - Deploy DeepBench and get Hardware BenchMark for Deep Neural Network (Only Support Nvidia Based board)
 
+[deepSpeech.sh](https://github.com/nullbyte91/Simple-Sh-DataScience/blob/master/deepSpeech.sh) - Deep Speeh auto script - Can setup deep Speech env, Deep Speech inference
+
+<b>Note:</b>
+
+We are activating the virtual env inside a bash script. So, We have run the deep speech script with source util.
+
+```bash
+source deepSpeech.sh
+```
+
 [git-openssl.sh](https://github.com/nullbyte91/Simple-Sh-DataScience/blob/master/git-openssl.sh) - Compile git package with openssl instead of gnutls
 
 [installCudaCuDNN.sh](https://github.com/nullbyte91/Simple-Sh-DataScience/blob/master/installCudaCuDNN.sh) - Install CUDA 9.0 and cuDNN 7.0

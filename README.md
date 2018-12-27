@@ -31,4 +31,6 @@ source deepSpeech.sh
 
 [ubuntu_datascience_env.sh](https://github.com/nullbyte91/Simple-Sh-DataScience/blob/master/ubuntu_datascience_env.sh) - Create a Data science env on Ubuntu system.
 
+[docker.sh](https://github.com/nullbyte91/Simple-Sh-DataScience/blob/master/docker.sh) - Install docker and configure proxy if your behind corporate proxy
+
 ---

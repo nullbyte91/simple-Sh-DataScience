@@ -55,3 +55,19 @@ function installPipPackages()
         pip3 install $2 --user
     fi
 }
+
+function removeAptPackages()
+{
+	for pkg in $1; do
+        if dpkg --get-selections | grep -q "^$pkg[[:space:]]*install$" >/dev/null; then
+            echo -e "$pkg is installed. Gonna remove"
+			if sudo apt-get -qq remove $pkg; then
+    			echo "Successfull remove $pkg"
+			else
+    			echo "Error removing $pkg"
+			fi
+		else
+			echo -e "$pkg is not installed"
+			fi
+	done
+}

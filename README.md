@@ -69,14 +69,13 @@ This script download, Install and configure:</br>
 * Install stable Tensorflow CPU or GPU 
 
 [openmpi_install.sh](https://github.com/nullbyte91/Simple-Sh-DataScience/blob/master/openmpi_install.sh)<br>
-<b> Details:</b></br>
 Install openmpi and configure.<br>
+<b> Details:</b></br>
 This script download, Install and configure:</br>
 * Download openMPI
 * Configure and Install
 
-[ubuntu_datascience_env.sh](https://github.com/nullbyte91/Simple-Sh-DataScience/blob/master/ubuntu_datascience_env.sh) 
-
+[ubuntu_datascience_env.sh](https://github.com/nullbyte91/Simple-Sh-DataScience/blob/master/ubuntu_datascience_env.sh)<br>
 <b> Note:</b><br>
 This script still under dev.</br>
 

@@ -4,9 +4,9 @@
 # Released under the MIT License (MIT)
 # https://github.com/nullbyte91/Simple-Sh-DataScience/blob/master/LICENSE.md
 
-# Title           : deepSpeech.sh
-# Description     : This script use to explore, deploy Deep Speech from Mozilla(https://github.com/mozilla/DeepSpeech)
-# author		  : Jegathesan Shanmugam
+# Title           : fastai_v0.7_gpu.sh
+# Description     : This script to install fast.ai cpu env on ubuntu system
+# author	  : Jegathesan Shanmugam
 
 fAnaconda2Sh="Anaconda2-4.2.0-Linux-x86_64.sh"
 dAnaconda2Install="$HOME/anaconda2/"
@@ -53,9 +53,6 @@ ssl_verify: False" >> ~/.condarc
             #Configure proxy for pip
             echo "export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt python" >> ~/.bashrc
         fi
-
-        #conda install -y bcolz
-        #conda upgrade -y --all
     fi
 }
 
@@ -67,8 +64,7 @@ function installFastaiCPU()
     cd fastai
     conda env create -f environment-cpu.yml
 
-    #Activate conda env for fastai
-    #conda activate fastai-cpu
+    #Activate conda env for fastai-cpu
 
     echo "List conv env: by typing conda info --envs"
     echo "run the below command on terminal:"

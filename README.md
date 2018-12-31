@@ -79,10 +79,25 @@ This script download, Install and configure:</br>
 <b> Note:</b><br>
 This script still under dev.</br>
 
+[fastai_v0.7_cpu.sh](https://github.com/nullbyte91/Simple-Sh-DataScience/blob/master/fastai_v0.7_cpu.sh)</br>
+Setup fast.ai cpu env on ubuntu.
+<b> Details:</b></br>
+This script download, Install and configure:</br>
+* Install Conda and fast.ai dep
+* Activate fast.ai cpu env
+
+
+[fastai_v0.7_gpu.sh](https://github.com/nullbyte91/Simple-Sh-DataScience/blob/master/fastai_v0.7_gpu.sh)</br>
+Setup fast.ai gpu env on ubuntu.
+<b> Details:</b></br>
+This script download, Install and configure:</br>
+* Install Conda and fast.ai dep
+* Activate fast.ai gpu env
+
 [docker.sh](https://github.com/nullbyte91/Simple-Sh-DataScience/blob/master/docker.sh)<br>
 Install docker and configure proxy if your behind corporate proxy.<br>
 <b> Details:</b></br>
 This script download, Install and configure:</br>
 * Install and configure docker
-  
+
 ---

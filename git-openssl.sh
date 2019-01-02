@@ -18,6 +18,8 @@ sudo dpkg -i git_2.7.4-0ubuntu1.6_arm64.deb
 cd ../../
 sudo rm -rf git-openssl
 
+#Set git set on hold from apt-get/dpkg update
+sudo apt-mark hold git
 #Ref:
 #https://devopscube.com/gnutls-handshake-failed-aws-codecommit/
 

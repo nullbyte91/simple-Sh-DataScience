@@ -100,4 +100,11 @@ Install docker and configure proxy if your behind corporate proxy.<br>
 This script download, Install and configure:</br>
 * Install and configure docker
 
+[tensorObjectDetection.sh](https://github.com/nullbyte91/Simple-Sh-DataScience/blob/master/tensorObjectDetection.sh)<br>
+Install Tensorflow object detection API.
+<b> Details:</b></br>
+This script download, Install and configure:</br>
+* Install Tensorflow 
+* Install Object detection API with dep
+
 ---

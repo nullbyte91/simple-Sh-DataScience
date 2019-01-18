@@ -70,7 +70,7 @@ installAptPackages ${pythonLxml}
 installAptPackages ${pythonTk}
 
 #Install deepSpeech pip Package
-pip3 install -r objectDetectionReq.txt
+pip3 install -r requirementsFiles/objectDetectionReq.txt
 
 #protobuf-compiler installation and compile
 git clone https://github.com/tensorflow/models.git

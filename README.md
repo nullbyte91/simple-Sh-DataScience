@@ -107,4 +107,8 @@ This script download, Install and configure:</br>
 * Install Tensorflow 
 * Install Object detection API with dep
 
+## Dockerfiles
+[opencl_Intel](https://github.com/nullbyte91/simple-Sh-DataScience/tree/master/docker/opencl_intel)<br>
+Docker file for Intel Opencl Runtime env
+
 ---

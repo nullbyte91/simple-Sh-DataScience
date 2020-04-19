@@ -109,6 +109,15 @@ This script download, Install and configure:</br>
 
 ## Dockerfiles
 [opencl_Intel](https://github.com/nullbyte91/simple-Sh-DataScience/tree/master/docker/opencl_intel)<br>
-Docker file for Intel Opencl Runtime env
+Docker file for Intel's Opencl Runtime env
+
+[openvino_Intel](https://github.com/nullbyte91/simple-Sh-DataScience/tree/master/docker/openvino)<br>
+Docker file for Intel's OpenVINO deep learning
+
+[openvino_armnn_android](https://github.com/nullbyte91/simple-Sh-DataScience/blob/master/docker/armnn-android/)<br>
+Docker file for ARM's armnn deep learning lib for Android device
+
+[openvino_armnn_x86_64](https://github.com/nullbyte91/simple-Sh-DataScience/tree/master/docker/x86_64/)<br>
+Docker file for ARM's armnn deep learning lib for x86_64
 
 ---

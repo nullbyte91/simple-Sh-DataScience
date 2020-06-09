@@ -90,14 +90,12 @@ function compileSource()
             -D OPENCV_PYTHON3_INSTALL_PATH=$cwd/OpenCV-$cvVersion-py3/lib/python3.5/site-packages \
             -D WITH_QT=ON \
             -D WITH_OPENGL=ON \
+            -D WITH_OPENCL=ON \
             -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules \
             -D BUILD_EXAMPLES=ON ..
     make -j6
     sudo make install 
     sudo ldconfig
-
-    g++ -o hello_world hello_world.cpp `pkg-config opencv --cflags --libs`
-    ./hello_world
 }
 
 # Main starts from here

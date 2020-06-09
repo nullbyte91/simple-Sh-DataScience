@@ -1,31 +1,30 @@
-#include "opencv2/opencv.hpp"
-#include "opencv2/highgui/highgui.hpp"
+#include <opencv2/core/core.hpp>
+#include <opencv2/highgui/highgui.hpp>
+#include <iostream>
 
 using namespace cv;
+using namespace std;
 
-int main(int argc, char** argv) {
-    
-    //create a gui window:
-    namedWindow("Output",1);
-    
-    //initialize a 120X350 matrix of black pixels:
-    Mat output = Mat::zeros( 120, 350, CV_8UC3 );
-    
-    //write text on the matrix:
-    putText(output,
-            "Hello World :)",
-            cvPoint(15,70),
-            FONT_HERSHEY_PLAIN,
-            3,
-            cvScalar(0,255,0),
-            4);
-    
-    //display the image:
-    imshow("Output", output);
-    
-    //wait for the user to press any key:
-    waitKey(0);
-    
+int main( int argc, char** argv )
+{
+    if( argc != 2)
+    {
+     cout <<" Usage: display_image ImageToLoadAndDisplay" << endl;
+     return -1;
+    }
+
+    Mat image;
+    image = imread(argv[1], CV_LOAD_IMAGE_COLOR);   // Read the file
+
+    if(! image.data )                              // Check for invalid input
+    {
+        cout <<  "Could not open or find the image" << std::endl ;
+        return -1;
+    }
+
+    namedWindow( "Display window", WINDOW_AUTOSIZE );// Create a window for display.
+    imshow( "Display window", image );                   // Show our image inside it.
+
+    waitKey(0);                                          // Wait for a keystroke in the window
     return 0;
-
 }

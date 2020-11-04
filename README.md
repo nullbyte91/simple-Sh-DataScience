@@ -107,6 +107,15 @@ This script download, Install and configure:</br>
 * Install Tensorflow 
 * Install Object detection API with dep
 
+[openai_mujoco200.sh](https://github.com/nullbyte91/simple-Sh-DataScience/blob/master/openai_mujoco200.sh)</br>
+RL Setup - OpenAI GYM and mujoco200.
+This script download, Install and configure:</br>
+* Install OpenAI Gym 
+* Install mujoco200
+
+Note: You have download the Licence key and copy to  ~/.mujoco/
+
+
 ## Dockerfiles
 [opencl_Intel](https://github.com/nullbyte91/simple-Sh-DataScience/tree/master/docker/opencl_intel)<br>
 Docker file for Intel's Opencl Runtime env
